@@ -1,12 +1,15 @@
+<?php ob_start()?>
 <?php include './layout/header.php'?>
 
 
 <?php include './layout/sidebar.php'?>
 
 
-
-
 <?php include './layout/nav.php'?>
+
+
+<?php include_once './model/function.php'?>
+
 
 
 
@@ -15,17 +18,27 @@
 switch ($act) {
     case 'addProd':
 
-        include './products/view/add_prod.php';
+        showCategory();
+        addProducts();
+
+        include './view/products/add_prod.php';
 
         break;
     case 'listProd':
-        include './products/view/list_prod.php';
+        include './view/products/list_prod.php';
 
         break;
 
     case 'categories':
+        showCategory();
+        addCategories();
+        deleteCategory();
+        showUpdateCategory();
+        updateCategory();
+        include './view/categories/categories.php';
 
         break;
+
     case 'listUser':
 
         break;

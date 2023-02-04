@@ -4,7 +4,8 @@
         <input type="text" name="prod_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="">
     </div>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_name']) ? $errProduct['prod_name'] : ''; ?></span>
+    <h3 class="text-danger"> <?php echo isset($errProduct['name']) ? $errProduct['name'] : ''; ?>
+    </h3>
 
 
 
@@ -12,29 +13,35 @@
     <br>
     <div class="form-group">
         <select name="prod_category" id="select" class="form-select" aria-label="Default select example">
-            <option value="default" selected>Chọn sản phẩm</option>
+            <option value="default" selected>Loại sản phẩm</option>
 
-            <?php foreach ($dataCategories as $category) {?>
-            <option value="<?php echo $category['id_cat'] ?>"><?php echo $category['name_cat'] ?></option>
+            <?php foreach ($dataCategoies as $category) {extract($category)?>
+
+            <option value="<?php echo $id ?>"><?php echo $name ?></option>
+
             <?php }?>
+
+
+
         </select>
     </div>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_category']) ? $errProduct['prod_category'] : ''; ?></span>
+    <h3 class="text-danger"> <?php echo isset($errProduct['category']) ? $errProduct['category'] : ''; ?></h3>
 
     <br>
     <div class="form-group">
         <label for="exampleInputPassword1">Giá</label>
         <input name="prod_price" type="text" class="form-control" id="exampleInputPassword1">
     </div>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_price']) ? $errProduct['prod_price'] : ''; ?></span>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_price_num']) ? $errProduct['prod_price_num'] : ''; ?></span>
+    <h3 class="text-danger"> <?php echo isset($errProduct['price']) ? $errProduct['price'] : ''; ?></h3>
+    <h3 class="text-danger"> <?php echo isset($errProduct['prod_price_num']) ? $errProduct['prod_price_num'] : ''; ?>
+    </h3>
     <br>
 
     <div class="form-group">
         <label for="exampleInputPassword1">Hình ảnh</label> <br>
         <input name="prod_img" type="file" id="exampleInputPassword1">
     </div>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_img']) ? $errProduct['prod_img'] : ''; ?></span>
+    <h3 class="text-danger"> <?php echo isset($errProduct['img']) ? $errProduct['img'] : ''; ?></h3>
     <br>
 
     <div class="form-group">
@@ -44,7 +51,6 @@
             <option value="private">Private</option>
         </select>
     </div>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_status']) ? $errProduct['prod_status'] : ''; ?></span>
     <br>
 
 
@@ -61,15 +67,12 @@
         <input type="text" name="prod_tag" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             placeholder="">
     </div>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_tag']) ? $errProduct['prod_tag'] : ''; ?></span> <br>
-
 
 
     <div class="form-group">
         <label for="exampleInputPassword1">Nội Dung</label>
         <textarea class="form-control" name="prod_content" id="" cols="30" rows="10"></textarea>
     </div>
-    <span id='err_prod'> <?php echo isset($errProduct['prod_content']) ? $errProduct['prod_content'] : ''; ?></span>
     <br>
 
 
