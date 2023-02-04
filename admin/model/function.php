@@ -152,9 +152,9 @@ function addProducts()
             $errProduct['category'] = 'Bạn thiếu loại sản phẩm';
 
         }
-        if (empty($price) && is_numeric($price)) {
+        if (!is_numeric($price) || empty($price)) {
 
-            $errProduct['price'] = 'Bạn thiếu giá sản phẩm';
+            $errProduct['price'] = 'Gía có vấn đề';
 
         }
 
@@ -167,8 +167,14 @@ function addProducts()
         if (empty($errProduct)) {
             global $conn;
 
-            $sql = " insert into products (name, category, price , img , content , status ,sale ,tag  ) ";
-            $sql .= " values ('$name', '$category' , '$price' , '$img' , '$content', '$status' ,'$sale' , '$tag' )   ";
+            $price_old = $price;
+
+            $price_sale = ($sale * $price) / 100;
+
+            $price = $price_old - $price_sale;
+
+            $sql = " insert into products (name, category, price , img , content , status ,sale ,tag ,total_price_sale ) ";
+            $sql .= " values ('$name', '$category' , '$price' , '$img' , '$content', '$status' ,'$sale' , '$tag' ,'$price_old' )   ";
 
             $statement = $conn->prepare($sql);
             $statement->execute();
@@ -176,5 +182,18 @@ function addProducts()
         }
 
     }
+
+}
+
+function showProducts()
+{
+
+    global $conn;
+
+    $sql = "SELECT * FROM products order by id desc";
+    $statement = $conn->prepare($sql);
+    $statement->execute();
+    global $dataProducts;
+    $dataProducts = $statement->fetchAll();
 
 }

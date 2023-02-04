@@ -25,8 +25,9 @@ switch ($act) {
 
         break;
     case 'listProd':
-        include './view/products/list_prod.php';
 
+        showProducts();
+        include './view/products/list_prod.php';
         break;
 
     case 'categories':

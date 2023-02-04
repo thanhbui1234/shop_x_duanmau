@@ -1,5 +1,8 @@
 <div class="mx-4">
     <form action="#" method="post" class="">
+
+
+
         <div class="d-flex flex-row gap-2  ">
             <select name="option" class="form-select form-select-sm form-control w-25 mb-4" id="selectAllprod"
                 aria-label="Default select example">
@@ -34,33 +37,37 @@
             </thead>
             <tbody>
 
+                <?php if (empty($dataProducts)) {?>
+                <tr>
+                    <td class="text-center" colspan="10">EMPTY</td>
+
+                </tr>
+                <?php }?>
+                <tr>
+
+                    <?php foreach ($dataProducts as $product) {extract($product)?>
+
                 <tr>
                     <td><input class="selectAllBoxesChild" name="checkBoxArr[]" value="?>" type="checkbox"> </td>
-                    <td> </td>
-                    <td> </td>
+                    <td> <?php echo $id ?></td>
+                    <td> <?php echo $name ?> </td>
+                    <td> <?php echo $category ?> </td>
+                    <td> <?php echo $price ?> </td>
+                    <td><img width="90" src="/uploads//<?php echo $img ?>" alt=""></td>
 
-
-
-                    <td> </td>
-
-
-                    <td> 30000000</td>
-                    <td><img width="90" src="/uploads//" alt=""></td>
-
-                    <td class="content"> substr($product['prod_content'], 0, 30) . '.......' ?></td>
-                    <td> </td>
-                    <td> </td>
+                    <td class="content"> <?php echo substr($content, 0, 30) . '.......' ?></td>
+                    <td> <?php echo $status ?> </td>
+                    <td> <?php echo $sale ?> % </td>
                     <td class="action_prod"> <a class="btn btn-success" href="?product=update_product&id=">UPDATE</a>
                         <a class="btn btn-danger" href="?product=deleteProd&id=">DELETE</a>
                     </td>
 
 
-
-
+                    <?php }?>
+                </tr>
 
 
                 </tr>
-
             </tbody>
 
         </table>

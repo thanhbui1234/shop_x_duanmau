@@ -38,8 +38,8 @@
     <br>
 
     <div class="form-group">
-        <label for="exampleInputPassword1">Hình ảnh</label> <br>
-        <input name="prod_img" type="file" id="exampleInputPassword1">
+        <input hidden name="prod_img" type="file" id="img">
+        <label class="border btn btn-success" for="img"> Thêm hình ảnh</label>
     </div>
     <h3 class="text-danger"> <?php echo isset($errProduct['img']) ? $errProduct['img'] : ''; ?></h3>
     <br>
