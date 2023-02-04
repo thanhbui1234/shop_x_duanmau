@@ -30,6 +30,13 @@ switch ($act) {
         include './view/products/list_prod.php';
         break;
 
+    case 'update_prod';
+        showProdUpdate();
+
+        include './view/products/update_prod.php';
+
+        break;
+
     case 'categories':
         showCategory();
         addCategories();

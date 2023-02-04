@@ -197,3 +197,45 @@ function showProducts()
     $dataProducts = $statement->fetchAll();
 
 }
+
+function showProdUpdate()
+{
+    if (isset($_GET['id'])) {
+        global $conn;
+        $id = $_GET['id'];
+        $sql = " SELECT * from products where id = $id";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataProdUpade;
+        $dataProdUpade = $statement->fetchAll();
+    }
+
+}
+
+function selectCategory($category)
+{
+    if (isset($category)) {
+        global $conn;
+        $sql = "SELECT * FROM categories WHERE id = $category";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataNameCate;
+        $dataNameCate = $statement->fetchAll();
+    }
+
+}
+
+function selectDifferentCategory($data)
+{
+    if (isset($data)) {
+        global $conn;
+
+        $sql = "SELECT name FROM categories where name != '$data'";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataDifferentCategory;
+        $dataDifferentCategory = $statement->fetchAll();
+
+    }
+
+}

@@ -39,7 +39,7 @@
 
                 <?php if (empty($dataProducts)) {?>
                 <tr>
-                    <td class="text-center" colspan="10">EMPTY</td>
+                    <td class=" text-xl-center text-warning" colspan="10">EMPTY</td>
 
                 </tr>
                 <?php }?>
@@ -53,13 +53,14 @@
                     <td> <?php echo $name ?> </td>
                     <td> <?php echo $category ?> </td>
                     <td> <?php echo $price ?> </td>
-                    <td><img width="90" src="/uploads//<?php echo $img ?>" alt=""></td>
+                    <td><img width="50" src="../uploads//<?php echo $img ?>" alt=""></td>
 
-                    <td class="content"> <?php echo substr($content, 0, 30) . '.......' ?></td>
+                    <td class="content"> <?php echo substr($content, 0, 70) ?></td>
                     <td> <?php echo $status ?> </td>
                     <td> <?php echo $sale ?> % </td>
-                    <td class="action_prod"> <a class="btn btn-success" href="?product=update_product&id=">UPDATE</a>
-                        <a class="btn btn-danger" href="?product=deleteProd&id=">DELETE</a>
+                    <td class="action_prod"> <a class="btn btn-success"
+                            href="index.php?act=update_prod&&id      =<?php echo $id ?>">UPDATE</a>
+                        <a class="btn btn-danger" href="index.php?act=listProd&&delete=<?php echo $id ?>">DELETE</a>
                     </td>
 
 
