@@ -1,0 +1,5 @@
+Fonts used in this design:
+
+Font: Josefin Sans
+Author: Typemade
+Url: http://www.fontsquirrel.com/fonts/josefin-sans
