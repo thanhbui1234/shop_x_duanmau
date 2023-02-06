@@ -239,3 +239,101 @@ function selectDifferentCategory($data)
     }
 
 }
+
+function updateProducts()
+{
+    if (isset($_POST['updateProd'])) {
+        global $conn;
+        $id = $_GET['id'];
+
+        $name = $_POST['prod_name'];
+        $category = $_POST['prod_category'];
+        $price = $_POST['prod_price'];
+
+        $img = $_FILES['prod_img']['name'];
+
+        if (empty($img)) {
+            $sqlimg = "select img from products where id = $id";
+            $statementImg = $conn->prepare($sqlimg);
+            $dataImg = $statementImg->fetchAll();
+            foreach ($dataImg as $anh) {
+                var_dump($anh);
+            }
+        }
+
+        $prod_image_tmp = $_FILES['prod_img']['tmp_name'];
+        $targe_dir = '../uploads//';
+        $target_file = $targe_dir . $img;
+        move_uploaded_file($prod_image_tmp, $target_file);
+
+        $status = $_POST['prod_status'];
+        $sale = $_POST['prod_sale'];
+        $tag = $_POST['prod_tag'];
+        $content = $_POST['prod_content'];
+
+    }
+}
+
+function selectOptionProduct()
+{
+
+    if (isset($_POST['apply'])) {
+        if (!empty($_POST['checkBoxArr'])) {
+            global $conn;
+
+            $checkboxs = $_POST['checkBoxArr'];
+            foreach ($checkboxs as $checkbox) {
+
+                $option = $_POST['option'];
+
+                switch ($option) {
+
+                    case 'public':
+                        $sql = "update products set status = 'public' where id = '$checkbox' ";
+                        $statement = $conn->prepare($sql);
+                        $statement->execute();
+
+                        break;
+                    case 'private':
+                        $sql = "update products set status = 'private' where id = '$checkbox' ";
+                        $statement = $conn->prepare($sql);
+                        $statement->execute();
+
+                        break;
+
+                    case 'clone':
+                        $sql = "select * from products  where id = '$checkbox' ";
+                        $statement = $conn->prepare($sql);
+                        $statement->execute();
+
+                        $dataClones = $statement->fetchAll();
+
+                        foreach ($dataClones as $clone) {extract($clone);
+
+                            $sqlClone = " insert into products (category,name,price,img,content,status,sale,tag,total_price_sale)  ";
+                            $sqlClone .= " values ('$category','$name','$price','$img','$content','$status','$sale','$tag','$total_price_sale') ";
+                            $statementClone = $conn->prepare($sqlClone);
+                            $statementClone->execute();
+
+                        }
+                        break;
+
+                    case 'delete':
+                        $sql = " delete from products where id = '$checkbox' ";
+                        $statement = $conn->prepare($sql);
+                        $statement->execute();
+
+                        break;
+                    default:
+
+                        echo "<script>Swal.fire('Bạn phải chọn chức năng')</script>";
+                        break;
+
+                }
+
+            }
+        }
+
+    }
+
+}
