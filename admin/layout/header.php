@@ -10,6 +10,10 @@
 
     <title>Shop X</title>
 
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <!-- Custom fonts for this template-->
     <link href="./layout//vendor/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet" type="text/css" />
 

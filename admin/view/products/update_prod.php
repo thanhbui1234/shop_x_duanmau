@@ -70,22 +70,22 @@
 
     <div class="form-group">
         <label for="exampleInputPassword1">Giảm giá</label>
-        <input name="prod_sale" type="number" min="0" max="100" step="10" value="0" class="form-control"
-            id="exampleInputPassword1">
+        <input name="prod_sale" type="number" min="0" max="100" step="10" value="<?php echo $sale ?>"
+            class="form-control" id="exampleInputPassword1">
         <span id="percent">%</span>
 
     </div>
 
     <div class="form-group">
         <label for="exampleInputEmail1">Tag sản phẩm ( tìm kiếm )</label>
-        <input type="text" name="prod_tag" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-            placeholder="">
+        <input value="<?php echo $tag ?>" type="text" name="prod_tag" class="form-control" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="">
     </div>
 
 
     <div class="form-group">
         <label for="exampleInputPassword1">Nội Dung</label>
-        <textarea class="form-control" name="prod_content" id="" cols="30" rows="10"></textarea>
+        <textarea class="form-control" name="prod_content" id="" cols="30" rows="10"><?php echo $content ?> </textarea>
     </div>
     <br>
     <?php }?>
@@ -94,5 +94,5 @@
 
 
 
-    <br> <button type="submit" name="addProd" class="btn btn-primary">Thêm sản phẩm</button>
+    <button type="submit" name="updateProd" class="btn btn-primary mb-3">Update</button>
 </form>

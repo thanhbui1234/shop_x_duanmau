@@ -48,7 +48,9 @@
                     <?php foreach ($dataProducts as $product) {extract($product)?>
 
                 <tr>
-                    <td><input class="selectAllBoxesChild" name="checkBoxArr[]" value="?>" type="checkbox"> </td>
+                    <td><input class="selectAllBoxesChild" name="checkBoxArr[]" value="<?php echo $id ?>"
+                            type="checkbox">
+                    </td>
                     <td> <?php echo $id ?></td>
                     <td> <?php echo $name ?> </td>
                     <td> <?php echo $category ?> </td>
@@ -59,7 +61,7 @@
                     <td> <?php echo $status ?> </td>
                     <td> <?php echo $sale ?> % </td>
                     <td class="action_prod"> <a class="btn btn-success"
-                            href="index.php?act=update_prod&&id      =<?php echo $id ?>">UPDATE</a>
+                            href="index.php?act=update_prod&&id=<?php echo $id ?>">UPDATE</a>
                         <a class="btn btn-danger" href="index.php?act=listProd&&delete=<?php echo $id ?>">DELETE</a>
                     </td>
 
@@ -75,3 +77,5 @@
     </form>
 
 </div>
+
+<script src="/shop_xx//js//checkbox.js"></script>

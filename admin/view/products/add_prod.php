@@ -8,8 +8,6 @@
     </h3>
 
 
-
-
     <br>
     <div class="form-group">
         <select name="prod_category" id="select" class="form-select" aria-label="Default select example">

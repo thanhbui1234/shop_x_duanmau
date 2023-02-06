@@ -25,13 +25,15 @@ switch ($act) {
 
         break;
     case 'listProd':
-
+        selectOptionProduct();
         showProducts();
         include './view/products/list_prod.php';
         break;
 
     case 'update_prod';
         showProdUpdate();
+
+        updateProducts();
 
         include './view/products/update_prod.php';
 

@@ -5,6 +5,8 @@
 </div>
 <!-- End of Page Wrapper -->
 
+<script src="/js//checkbox.js"></script>
+
 <!-- Bootstrap core JavaScript-->
 <script src="./layout//vendor/jquery/jquery.min.js"></script>
 <script src="./layout//vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
