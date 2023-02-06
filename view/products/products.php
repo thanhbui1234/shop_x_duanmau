@@ -35,13 +35,13 @@
              <div class="col-lg-4 col-sm-6 mb-4">
                  <!-- Portfolio item 1-->
                  <div class="portfolio-item">
-                     <a class="portfolio-link" href="about_product.php?id=">
+                     <a class="portfolio-link" href="./index.php?act=about_product&id=<?php echo $id ?>">
 
                          <img class="img-fluid" src="./uploads//<?php echo $img ?>" alt="" />
                      </a>
                      <div class="portfolio-caption">
 
-                         <a class="text-decoration-none" href="about_product.php?id=">
+                         <a class="text-decoration-none" href="./index.php?act=about_product&id=<?php echo $id ?>">
                              <div class="portfolio-caption-heading"><?php echo $name ?>
                              </div>
                          </a>

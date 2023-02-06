@@ -198,20 +198,6 @@ function showProducts()
 
 }
 
-function showProdUpdate()
-{
-    if (isset($_GET['id'])) {
-        global $conn;
-        $id = $_GET['id'];
-        $sql = " SELECT * from products where id = $id";
-        $statement = $conn->prepare($sql);
-        $statement->execute();
-        global $dataProdUpade;
-        $dataProdUpade = $statement->fetchAll();
-    }
-
-}
-
 function selectCategory($category)
 {
     if (isset($category)) {
@@ -255,10 +241,15 @@ function updateProducts()
         if (empty($img)) {
             $sqlimg = "select img from products where id = $id";
             $statementImg = $conn->prepare($sqlimg);
+            $statementImg->execute();
+
             $dataImg = $statementImg->fetchAll();
-            foreach ($dataImg as $anh) {
-                var_dump($anh);
+
+            foreach ($dataImg as $value) {
+
+                $img = $value['img'];
             }
+
         }
 
         $prod_image_tmp = $_FILES['prod_img']['tmp_name'];
@@ -270,8 +261,51 @@ function updateProducts()
         $sale = $_POST['prod_sale'];
         $tag = $_POST['prod_tag'];
         $content = $_POST['prod_content'];
+        global $errUpdate;
+        $errUpdate = [];
+
+        if (empty($name)) {
+
+            $errUpdate['name'] = 'Bạn thiếu tên sản phẩm';
+
+        }
+
+        if (!is_numeric($price) || empty($price)) {
+
+            $errUpdate['price'] = 'Gía có vấn đề';
+
+        }
+
+        if (empty($errUpdate)) {
+            global $conn;
+
+            $price_old = $price;
+            $price_sale = ($sale * $price) / 100;
+            $price = $price_old - $price_sale;
+
+            $sql = " update products set name ='$name' , category ='$category' , price = '$price' , img = '$img' ";
+            $sql .= " , sale = '$sale'  , tag = '$tag' , content = '$content'  , total_price_sale = '$price_old'  where id = '$id'  ";
+
+            $statement = $conn->prepare($sql);
+            $statement->execute();
+
+        }
 
     }
+}
+
+function showProdUpdate()
+{
+    if (isset($_GET['id'])) {
+        global $conn;
+        $id = $_GET['id'];
+        $sql = " SELECT * from products where id = $id";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataProdUpade;
+        $dataProdUpade = $statement->fetchAll();
+    }
+
 }
 
 function selectOptionProduct()
@@ -336,4 +370,16 @@ function selectOptionProduct()
 
     }
 
+}
+
+function deleteProduct()
+{
+    if (isset($_GET['delete'])) {
+        global $conn;
+        $id = $_GET['delete'];
+        $sql = " delete from products where id = '$id' ";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+
+    }
 }

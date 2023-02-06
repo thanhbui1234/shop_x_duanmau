@@ -25,6 +25,7 @@ switch ($act) {
 
         break;
     case 'listProd':
+        deleteProduct();
         selectOptionProduct();
         showProducts();
         include './view/products/list_prod.php';
@@ -37,6 +38,8 @@ switch ($act) {
 
         include './view/products/update_prod.php';
 
+        break;
+    case '';
         break;
 
     case 'categories':
@@ -56,11 +59,14 @@ switch ($act) {
 
         break;
 
-    case 'commnets':
+    case 'comments':
+
+        include './view/comments/commnets.php';
 
         break;
 
     default:
+
         include './layout/home.php';
         break;
 }

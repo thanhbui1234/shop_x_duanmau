@@ -19,9 +19,7 @@
                      <a class="nav-link" href="#portfolio">Sản phẩm</a>
                  </li>
 
-                 <li class="nav-item">
-                     <a class="nav-link" href="#contact">Liên hệ</a>
-                 </li>
+
                  <li class="nav-item">
 
                      <?php if (isset($_SESSION['user_name'])) {?>
@@ -29,34 +27,31 @@
 
                          <span class=" nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
                              aria-expanded="false">
-                             <!-- <img class="id_user" width="20" src="/assets//img/portfolio//avatardefault_92824.webp"
-                                 alt=""> -->
 
-                             <?php echo !empty($_SESSION['user_img'])
-    ? "<img class='id_user' height='26'  width='25' src='/uploads//$_SESSION[user_img]'alt='$_SESSION[user_name]'>"
-    : " <img class='id_user' width='25' src='/assets//img//portfolio//avatardefault_92824.webp' alt=''>";
+                             <img src="/uploads//Ipad mini 6 5g.jpg" alt="">
 
-    ?>
                              <?php echo $_SESSION['user_name'] ?>
                          </span>
                          <ul class="dropdown-menu">
-                             <?php echo $_SESSION['user_role'] == 1 ? " <li><a class='dropdown-item' href='/admin.php'> Admin</a></li>" : ''; ?>
+                             <?php echo $_SESSION['user_role'] == 0 ? " <li><a class='dropdown-item' href='/admin.php'> Admin</a></li>" : ''; ?>
 
                              <li><a class="dropdown-item" href="profile.php">Profile</a></li>
 
-                             <?php echo $_SESSION['user_role'] != 1 ? " <li><a class='dropdown-item' href='/admin/index.php'> Trang quản trị</a></li>" : ''; ?>
+                             <?php echo $_SESSION['user_role'] != 0 ? " <li><a class='dropdown-item' href='/admin/index.php'> Trang quản trị</a></li>" : ''; ?>
 
 
-                             <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
+                             <li><a class="dropdown-item" href="/shop_xx/view/logout/logout.php">Đăng xuất</a></li>
 
 
                          </ul>
+
+
                      </div>
 
 
                      <?php } else {?>
 
-                     <a class="nav-link" href="/login.php">Đăng nhập</a>
+                     <a class="nav-link" href="/../shop_xx/login/login.php?act=fasle">Đăng nhập</a>
 
                      <?php }?>
 
@@ -77,6 +72,7 @@
              </ul>
          </div>
      </div>
+
  </nav>
  <header class="masthead">
      <div class="container">

@@ -1,14 +1,16 @@
 <?php
+
 include './layout/header.php'
 ?>
-
-
+<?php session_start();?>
 
 
 <?php
 include_once './model/functions.php';
-
 ?>
+
+
+
 
 <body id="page-top">
     <!-- Navigation-->
@@ -20,10 +22,16 @@ include_once './model/functions.php';
 
 switch ($act) {
 
-    case 'direct':
+    case 'about_product':
+
+        showAboutProduct();
+
+        include './view/products/about_product.php';
+
         break;
 
     default:
+
         showPorudcts();
 
         include './view/products/products.php';

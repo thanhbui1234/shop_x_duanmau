@@ -1,26 +1,11 @@
-#header_register {
-  padding-bottom: 10px;
-}
-
 #product {
   margin-top: 100px;
   display: grid;
+  gap: 30px;
   grid-template-columns: 1fr 1fr;
 }
-.buy {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 150px;
-  gap: 10px;
-}
-.buy button {
-  border-color: red;
-  overflow: hidden;
-  outline: none;
-}
-
-.err_user {
-  color: red !important;
+#prod_name {
+  color: red;
 }
 #search {
   position: relative;
@@ -42,89 +27,20 @@
   background-color: white !important;
   height: 23px;
 }
-
-#categories {
-  padding-top: 30px;
-
-  gap: 30px;
+#price_about {
+  color: #ffd028;
 }
-#categories li {
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 20px;
-
-  list-style-type: none;
-}
-#categories li a {
-  text-decoration: none;
+.err_user {
+  margin-top: 10px;
   color: red;
 }
+
 .login {
   color: red;
 }
-#button {
-  position: relative;
-  left: 0;
-}
-.id_user {
-  border-radius: 50%;
-}
-#gender1 {
-  margin-bottom: 30px;
-}
-.lable {
-  min-width: 130px;
-  opacity: calc(60%);
-}
-
-#profile {
-  display: flex;
-  justify-content: space-around;
-}
-#avatar {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-#img {
-  border-radius: 50%;
-}
-#paging {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  align-items: center;
-  flex-direction: row;
-}
-#paging li {
-  font-size: 30px;
-  list-style-type: none;
-}
-#commnets {
-  height: 300px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+#myForm {
+  width: 600px;
 }
 #textcmt {
   height: 100px;
-}
-#cmtUsers {
-  position: relative;
-  left: 130px;
-  max-width: 600px;
-}
-
-#sale {
-  color: black;
-  font-size: 30px;
-  margin-left: 20px;
-}
-#notregister {
-  position: absolute;
-  right: 0;
-}
-#contactForm {
-  position: relative;
 }

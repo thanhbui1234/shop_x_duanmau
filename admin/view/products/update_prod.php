@@ -7,6 +7,8 @@
         <input type="text" value="<?php echo $name ?>" name="prod_name" class="form-control" id="exampleInputEmail1"
             aria-describedby="emailHelp" placeholder="">
     </div>
+    <h3 class="text-danger"> <?php echo isset($errUpdate['name']) ? $errUpdate['name'] : ''; ?>
+    </h3>
 
 
 
@@ -16,7 +18,7 @@
         <select name="prod_category" id="select" class="form-select" aria-label="Default select example">
             <?php selectCategory($category)?>
             <?php foreach ($dataNameCate as $nameCate) {?>
-            <option value="<?php echo $nameCate['name'] ?>"><?php echo $nameCate['name'] ?></option>
+            <option value="<?php echo $category ?>"><?php echo $nameCate['name'] ?></option>
 
             <?php selectDifferentCategory($nameCate['name'])?>
 
@@ -37,7 +39,6 @@
 
         </select>
     </div>
-    <h3 class="text-danger"> <?php echo isset($errProduct['category']) ? $errProduct['category'] : ''; ?></h3>
 
     <br>
     <div class="form-group">
@@ -45,6 +46,9 @@
         <input value="<?php echo $price ?>" name="prod_price" type="text" class="form-control"
             id="exampleInputPassword1">
     </div>
+    <h3 class="text-danger"> <?php echo isset($errUpdate['price']) ? $errUpdate['price'] : ''; ?></h3>
+    <h3 class="text-danger"> <?php echo isset($errUpdate['prod_price_num']) ? $errUpdate['prod_price_num'] : ''; ?>
+    </h3>
     <br>
 
     <div class="form-group">
@@ -70,7 +74,7 @@
 
     <div class="form-group">
         <label for="exampleInputPassword1">Giảm giá</label>
-        <input name="prod_sale" type="number" min="0" max="100" step="10" value="<?php echo $sale ?>"
+        <input name="prod_sale" type="number" min="0" max="100" step="5" value="<?php echo $sale ?>"
             class="form-control" id="exampleInputPassword1">
         <span id="percent">%</span>
 

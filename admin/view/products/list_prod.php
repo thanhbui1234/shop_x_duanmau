@@ -62,7 +62,7 @@
                     <td> <?php echo $sale ?> % </td>
                     <td class="action_prod"> <a class="btn btn-success"
                             href="index.php?act=update_prod&&id=<?php echo $id ?>">UPDATE</a>
-                        <a class="btn btn-danger" href="index.php?act=listProd&&delete=<?php echo $id ?>">DELETE</a>
+                        <a class="btn btn-danger" href="index.php?act=listProd&delete=<?php echo $id ?>">DELETE</a>
                     </td>
 
 
