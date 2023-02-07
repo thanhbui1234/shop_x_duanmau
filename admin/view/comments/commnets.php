@@ -8,24 +8,46 @@
              <th>Hỉnh ảnh</th>
              <th>Trạng thái</th>
              <th>Phê duyệt</th>
-             <th>Action </th>
 
          </tr>
 
      </thead>
      <tbody>
+
+         <?php if (empty($dataCmts)) {?>
+
          <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td><a class="text-center btn btn-danger" href="">Xóa</a></td>
+             <td colspan="7" class="text-center text-danger">Empty</td>
+         </tr>
+         <?php }?>
+
+         <?php foreach ($dataCmts as $cmt) {extract($cmt)?>
+
+         <tr>
+             <td><?php echo $id ?></td>
+             <td><?php echo $id_prod ?></td>
+             <td><?php echo $id_user ?></td>
+             <td><?php echo $content ?></td>
+             <td><?php echo $img ?></td>
+             <td><?php
+
+    echo $duyet == 0 ? "<i class='text-danger fa-solid fa-xmark'> </i> Chua phe duyet" : "<i class='text-success fa-solid fa-check'> </i> Da phe duyet";
+
+    ?>
+
+             </td>
+             <td>
+                 <a class="btn btn-success" href="/shop_xx/admin//index.php?act=comments&pheduyet=<?php echo $id ?>">Phe
+                     duyet</a>
+                 <a class="btn btn-danger" href="/shop_xx/admin//index.php?act=comments&khongpheduyet">Xoa
+                 </a>
+
+             </td>
+
 
 
          </tr>
+         <?php }?>
 
 
      </tbody>

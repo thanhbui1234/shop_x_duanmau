@@ -25,6 +25,7 @@ switch ($act) {
     case 'about_product':
 
         showAboutProduct();
+        sendCmt();
 
         include './view/products/about_product.php';
 

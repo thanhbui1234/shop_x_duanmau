@@ -383,3 +383,36 @@ function deleteProduct()
 
     }
 }
+
+/// cmt
+
+function showCmts()
+{
+
+    global $conn;
+    $sql = "select * from commnets order by id desc ";
+    $statement = $conn->prepare($sql);
+    $statement->execute();
+    global $dataCmts;
+    $dataCmts = $statement->fetchAll();
+}
+function xetDuyet()
+{
+
+    if (isset($_GET['pheduyet'])) {
+        global $conn;
+        $id = $_GET['pheduyet'];
+        $sql = " update commnets set duyet = 1 where id = $id  ";
+        $statement = $conn->prepare($sql);
+        if ($statement->execute()) {
+            // header('location: /shop_xx/admin//index.php?act=comments');
+
+            echo "<script>Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)</script>";
+
+        }
+    }
+}

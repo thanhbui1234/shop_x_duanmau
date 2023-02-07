@@ -12,7 +12,6 @@
 
 
 
-
 <?php isset($_GET['act']) ? $act = $_GET['act'] : $act = false;
 
 switch ($act) {
@@ -60,6 +59,8 @@ switch ($act) {
         break;
 
     case 'comments':
+        showCmts();
+        xetDuyet();
 
         include './view/comments/commnets.php';
 
