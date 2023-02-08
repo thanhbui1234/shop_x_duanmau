@@ -1,3 +1,22 @@
+ <?php
+if (isset($_GET['alertDelete'])) {
+    echo "<script>Swal.fire(
+  'Bạn đã xóa thành công!'
+
+)
+</script>";
+}
+
+if (isset($_GET['alertDuyet'])) {
+    echo "<script>Swal.fire(
+  'Bạn đã duyệt thành công!'
+
+)
+</script>";
+}
+
+?>
+
  <table class="table shadow p-3 mb-5 bg-body rounded  table-condensed table-bordered  container ">
      <thead class="headTable">
          <tr>
@@ -7,7 +26,7 @@
              <th>Nội dung </th>
              <th>Hỉnh ảnh</th>
              <th>Trạng thái</th>
-             <th>Phê duyệt</th>
+             <th>Action</th>
 
          </tr>
 
@@ -25,7 +44,15 @@
 
          <tr>
              <td><?php echo $id ?></td>
-             <td><?php echo $id_prod ?></td>
+
+             <?php selectCmtProd($id_prod)?>
+             <?php foreach ($dataSelectName as $name) {?>
+             <td> <a href="/shop_xx/index.php?act=about_product&id=<?php echo $id_prod ?>"><?php echo $name['name'] ?>
+                 </a></td>
+
+             <?php }?>
+
+
              <td><?php echo $id_user ?></td>
              <td><?php echo $content ?></td>
              <td><?php echo $img ?></td>
@@ -39,7 +66,7 @@
              <td>
                  <a class="btn btn-success" href="/shop_xx/admin//index.php?act=comments&pheduyet=<?php echo $id ?>">Phe
                      duyet</a>
-                 <a class="btn btn-danger" href="/shop_xx/admin//index.php?act=comments&khongpheduyet">Xoa
+                 <a class="btn btn-danger" href="/shop_xx/admin//index.php?act=comments&deleteCmt=<?php echo $id ?>">Xoa
                  </a>
 
              </td>

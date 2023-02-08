@@ -61,6 +61,7 @@ switch ($act) {
     case 'comments':
         showCmts();
         xetDuyet();
+        deleteCmt();
 
         include './view/comments/commnets.php';
 

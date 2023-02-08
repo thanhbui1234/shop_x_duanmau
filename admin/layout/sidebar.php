@@ -83,9 +83,9 @@
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="/shop_xx/admin/index.php?act=comments" data-toggle="collapse"
-                    data-target="" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
+                <a class="nav-link collapsed" href="index.php?act=comments" data-toggle=""
+                    data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
                     <span>Bình luận</span>
                 </a>
 

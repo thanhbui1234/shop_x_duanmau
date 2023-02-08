@@ -216,7 +216,7 @@ function selectDifferentCategory($data)
     if (isset($data)) {
         global $conn;
 
-        $sql = "SELECT name FROM categories where name != '$data'";
+        $sql = "SELECT * FROM categories where name != '$data'";
         $statement = $conn->prepare($sql);
         $statement->execute();
         global $dataDifferentCategory;
@@ -405,14 +405,35 @@ function xetDuyet()
         $sql = " update commnets set duyet = 1 where id = $id  ";
         $statement = $conn->prepare($sql);
         if ($statement->execute()) {
-            // header('location: /shop_xx/admin//index.php?act=comments');
-
-            echo "<script>Swal.fire(
-  'Good job!',
-  'You clicked the button!',
-  'success'
-)</script>";
+            header('location: /shop_xx/admin//index.php?act=comments&alertDuyet');
 
         }
+    }
+}
+function deleteCmt()
+{
+
+    if (isset($_GET['deleteCmt'])) {
+        global $conn;
+        $id = $_GET['deleteCmt'];
+        $sql = " DELETE FROM commnets where id = $id";
+        $statement = $conn->prepare($sql);
+        if ($statement->execute()) {
+            header('location: /shop_xx/admin//index.php?act=comments&alertDelete');
+
+        }
+
+    }
+}
+
+function selectCmtProd($id)
+{
+    if (isset($id)) {
+        global $conn;
+        $sql = "SELECT name from products where id = $id";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataSelectName;
+        $dataSelectName = $statement->fetchAll();
     }
 }

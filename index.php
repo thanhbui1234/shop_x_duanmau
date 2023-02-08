@@ -26,15 +26,28 @@ switch ($act) {
 
         showAboutProduct();
         sendCmt();
-
+        showCmt();
         include './view/products/about_product.php';
+        break;
+    case 'profile';
+        profile();
+        include './view/profile/profile.php';
 
+        break;
+
+    case 'search';
+        search();
+        include './view/search/search.php';
+
+        break;
+    case 'category';
+        selectProductCategory();
+        include './view/categories/categories.php';
         break;
 
     default:
 
         showPorudcts();
-
         include './view/products/products.php';
 
         break;

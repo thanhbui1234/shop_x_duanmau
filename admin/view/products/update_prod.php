@@ -24,13 +24,12 @@
 
             <?php foreach ($dataDifferentCategory as $differentCategory) {?>
 
-            <option value="<?php echo $differentCategory['name'] ?>"><?php echo $differentCategory['name'] ?></option>
 
-
-            <?php }?>
+            <option value="<?php echo $differentCategory['id'] ?>"><?php echo $differentCategory['name'] ?></option>
 
             <?php }?>
 
+            <?php }?>
 
 
 

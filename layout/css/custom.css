@@ -44,3 +44,19 @@
 #textcmt {
   height: 100px;
 }
+#cmtUsers {
+  width: 600px;
+}
+.lable {
+  min-width: 200px;
+  opacity: calc(60%);
+}
+
+#profile {
+  display: flex;
+  justify-content: space-around;
+}
+#setAvt {
+  margin-left: 70px;
+  margin-top: 30px;
+}

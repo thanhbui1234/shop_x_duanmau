@@ -10,14 +10,14 @@
 
         <div class="row">
 
-            <?php if (empty($dataSearchs)) {?>
+            <?php if (empty($dataselectProductCategory)) {?>
             <section>
-                <h3 class="text-center text-danger">Không có thông tin về sản phẩm này</h3>
+                <h3 class="text-center text-danger">Danh mục này không có sản phẩm nào</h3>
             </section>
 
             <?php }?>
 
-            <?php foreach ($dataSearchs as $product) {extract($product)?>
+            <?php foreach ($dataselectProductCategory as $product) {extract($product)?>
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 1-->
                 <div class="portfolio-item">

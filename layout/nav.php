@@ -1,4 +1,7 @@
  <!-- Navigation-->
+
+
+
  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
      <div class="container">
          <a class="navbar-brand  text-white" href="index.php"><i class="fa-solid fa-shop"></i> SHOP X </a>
@@ -12,7 +15,30 @@
              <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
 
                  <li class="nav-item">
-                     <a class="nav-link" href="#categories_nav">Danh mục</a>
+                     <div class="dropdown">
+
+                         <span class=" nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                             aria-expanded="false">
+
+                             Danh mục
+                         </span>
+                         <ul class="dropdown-menu">
+                             <?php showCategories()?>
+
+                             <?Php foreach ($dataCategories as $category) {?>
+                             <li><a class="dropdown-item"
+                                     href="/shop_xx/index.php?act=category&id=<?php echo $category['id'] ?>"><?php echo $category['name'] ?></a>
+                             </li>
+                             <?php }?>
+
+
+
+
+
+                         </ul>
+
+
+                     </div>
                  </li>
 
                  <li class="nav-item">
@@ -28,14 +54,13 @@
                          <span class=" nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
                              aria-expanded="false">
 
-                             <img src="/uploads//Ipad mini 6 5g.jpg" alt="">
-
+                             <img width="30" src="/../shop_xx//uploads/avatardefault_92824.webp" alt="">
                              <?php echo $_SESSION['user_name'] ?>
                          </span>
                          <ul class="dropdown-menu">
-                             <?php echo $_SESSION['user_role'] == 0 ? " <li><a class='dropdown-item' href='/admin.php'> Admin</a></li>" : ''; ?>
+                             <?php echo $_SESSION['user_role'] == 0 ? " <li><a class='dropdown-item' href='/shop_xx/admin/index.php?act=false'> Admin</a></li>" : ''; ?>
 
-                             <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                             <li><a class="dropdown-item" href="/shop_xx/index.php?act=profile">Profile</a></li>
 
                              <?php echo $_SESSION['user_role'] != 0 ? " <li><a class='dropdown-item' href='/admin/index.php'> Trang quản trị</a></li>" : ''; ?>
 
@@ -61,10 +86,14 @@
 
 
                  </li>
+
+
+
                  <li id="search" class="nav-item">
-                     <form action="search.php" method="post">
+                     <form action="/shop_xx/index.php?act=search" method="post">
                          <input name="search" class="input-group" type="text">
-                         <button name="search_submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+                         <button type="submit" name="search_submit"> <i
+                                 class="fa-solid fa-magnifying-glass"></i></button>
                      </form>
 
 
@@ -74,6 +103,7 @@
      </div>
 
  </nav>
+
  <header class="masthead">
      <div class="container">
          <div class="masthead-subheading"></div>
