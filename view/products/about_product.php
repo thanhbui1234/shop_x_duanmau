@@ -92,7 +92,17 @@ if (isset($_GET['success'])) {
         <?php selectavtCmtUser($id_user);?>
 
         <?php foreach ($dataCmtUser as $user) {?>
-        <img class="rounded-circle" width="45" src="/../shop_xx/uploads/<?php echo $user['avt'] ?>" alt="">
+
+
+        <?php
+
+    echo empty($user['avt']) ? "    <img class='rounded-circle' width='45' src='/../shop_xx/uploads/avatardefault_92824.webp' alt=''>"
+    : " <img class='rounded-circle' width='35' src='/../shop_xx/uploads/$user[avt]' alt=''>";
+
+    ?>
+
+
+
 
 
         <span class="pl-1"><?php echo $user['user_fullName'] ?></span>
@@ -112,21 +122,19 @@ if (isset($_GET['success'])) {
 </div>
 
 <script>
-const form = document.querySelector('#myForm');
+const form = document.querySelector(' #myForm');
 form.addEventListener('submit', function(e) {
-
-
-    const textcmt = document.querySelector('#textcmt');
+    const
+        textcmt = document.querySelector('#textcmt');
     if (textcmt.value.length < 5) {
         e.preventDefault();
-        return Swal.fire({
+        return
+        Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Bạn phải nhập đây đủ!',
         });
     }
-
-
 });
 </script>
 
