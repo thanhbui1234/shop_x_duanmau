@@ -55,7 +55,7 @@ if (isset($_GET['alertDuyet'])) {
 
              <td><?php echo $id_user ?></td>
              <td><?php echo $content ?></td>
-             <td><?php echo $img ?></td>
+             <td><img width="60" src="/../shop_xx//uploads/<?php echo $img ?>" alt=""></td>
              <td><?php
 
     echo $duyet == 0 ? "<i class='text-danger fa-solid fa-xmark'> </i> Chua phe duyet" : "<i class='text-success fa-solid fa-check'> </i> Da phe duyet";

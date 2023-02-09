@@ -44,6 +44,11 @@ switch ($act) {
         selectProductCategory();
         include './view/categories/categories.php';
         break;
+    case 'request';
+        selectInfoRequestAdmin();
+        insertRequest();
+        include './view/request/request.php';
+        break;
 
     default:
 

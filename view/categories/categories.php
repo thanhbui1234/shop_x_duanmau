@@ -12,7 +12,8 @@
 
             <?php if (empty($dataselectProductCategory)) {?>
             <section>
-                <h3 class="text-center text-danger">Danh mục này không có sản phẩm nào</h3>
+                <h3 class="text-center text-danger"> Danh mục này không có sản phẩm nào
+                </h3>
             </section>
 
             <?php }?>

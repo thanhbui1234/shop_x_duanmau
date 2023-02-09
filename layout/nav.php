@@ -33,8 +33,6 @@
 
 
 
-
-
                          </ul>
 
 
@@ -47,15 +45,25 @@
 
 
                  <li class="nav-item">
-
+                     <?php avtNav()?>
                      <?php if (isset($_SESSION['user_name'])) {?>
                      <div class="dropdown">
 
                          <span class=" nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
                              aria-expanded="false">
+                             <?php foreach ($dataAvtNav as $avt) {
 
-                             <img width="30" src="/../shop_xx//uploads/avatardefault_92824.webp" alt="">
+    echo empty($dataAvtNav) ? "   <img width='29' src='/../shop_xx//uploads/avatardefault_92824.webp' alt=''>" : "   <img class='rounded-circle' width='30' src='/../shop_xx//uploads/$avt[avt]' alt=''>";
+
+}?>
+
+
+
+
+
+
                              <?php echo $_SESSION['user_name'] ?>
+
                          </span>
                          <ul class="dropdown-menu">
                              <?php echo $_SESSION['user_role'] == 0 ? " <li><a class='dropdown-item' href='/shop_xx/admin/index.php?act=false'> Admin</a></li>" : ''; ?>

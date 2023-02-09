@@ -1,3 +1,15 @@
+<?php
+
+if (isset($_GET['success'])) {
+    echo "<script>Swal.fire(
+         'Bình luận đã được gửi!',
+  ' Vui lòng chờ để xét duyệt','success'
+)
+</script>";
+}
+
+?>
+
 <div class="bg-bg-light container" id="product">
 
 
@@ -100,3 +112,24 @@
 
 
 </div>
+
+<script>
+const form = document.querySelector('#myForm');
+form.addEventListener('submit', function(e) {
+
+
+    const textcmt = document.querySelector('#textcmt');
+    if (textcmt.value.length < 5) {
+        e.preventDefault();
+        return Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Bạn phải nhập đây đủ!',
+        });
+    }
+
+
+});
+</script>
+
+</section>

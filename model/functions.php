@@ -6,7 +6,7 @@ function showPorudcts()
 {
     global $conn;
 
-    $sql = " select * from products order by id desc ";
+    $sql = " select * from products where status = 'public' order by id desc   ";
     $statemnet = $conn->prepare($sql);
 
     $statemnet->execute();
@@ -48,7 +48,9 @@ function sendCmt()
             $sql = " insert into commnets (content ,date,id_user,id_prod,img)  ";
             $sql .= " values ('$conntent' , '$dateCmt',$_SESSION[userId], $id,'$imgCmt')  ";
             $statement = $conn->prepare($sql);
-            $statement->execute();
+            if ($statement->execute()) {
+                header("location: /shop_xx/index.php?act=about_product&id=$id&success");
+            }
 
         }
 
@@ -100,6 +102,22 @@ function search()
         $statement->execute();
         global $dataSearchs;
         $dataSearchs = $statement->fetchAll();
+
+    }
+
+}
+
+function avtNav()
+{
+
+    if (isset($_SESSION['userId'])) {
+        $id = $_SESSION['userId'];
+        global $conn;
+        $sql = " select avt from user where id = $id";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataAvtNav;
+        $dataAvtNav = $statement->fetchAll();
 
     }
 
@@ -180,4 +198,62 @@ function updateProfile()
 
     }
 
+}
+
+function selectInfoRequestAdmin()
+{
+    if (isset($_SESSION['userId'])) {
+        global $conn;
+        $sql = " select * from user where id = $_SESSION[userId] ";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataRequestAdmin;
+        $dataRequestAdmin = $statement->fetchAll();
+    }
+
+}
+
+function insertRequest()
+{
+
+    if (isset($_POST['requestAdmin'])) {
+
+        global $conn;
+        $reason = $_POST['reason'];
+        global $errRequest;
+        $dateRequest = date("Y-m-d H:i a ");
+
+        $errRequest = [];
+        try {
+            if (empty($reason)) {
+
+                $errRequest['reasonEmpty'] = "Bạn phải cần lý do";
+
+            } else if (strlen($reason) < 50) {
+
+                $errRequest['stringReason'] = "Lý do phải hơn 50 ký tự";
+
+            }
+
+        } catch (exception $e) {
+            echo ' ' . $e->getMessage();
+
+        }
+
+        if (empty($errRequest)) {
+
+            $sql = "INSERT INTO requests_admin	(user_id,reason,date_request) values('$_SESSION[userId]','$reason','$dateRequest')";
+            $statement = $conn->prepare($sql);
+            if ($statement->execute()) {
+
+                echo "<script>Swal.fire(
+  'Đã gửi yêu cầu',
+  'Chúng tôi sẽ sét duyệt yêu cầu của bạn!',
+  'success'
+)</script>";
+            }
+
+        }
+
+    }
 }
