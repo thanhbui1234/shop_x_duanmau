@@ -75,7 +75,7 @@ function selectavtCmtUser($id)
 {
     if (isset($id)) {
         global $conn;
-        $sql = " SELECT user_fullName from user WHERE id = $id ";
+        $sql = " SELECT user_fullName ,avt from user WHERE id = $id ";
         $statement = $conn->prepare($sql);
         $statement->execute();
         global $dataCmtUser;

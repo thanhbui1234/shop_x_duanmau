@@ -89,14 +89,12 @@ if (isset($_GET['success'])) {
     <section id="cmtUsers" class="">
         <?php foreach ($dataCmtss as $cmt) {extract($cmt)?>
         <hr>
-
-
-
-        <img class="rounded-circle" width="50" src="/../shop_xx/uploads/avatardefault_92824.webp" alt="">
-
         <?php selectavtCmtUser($id_user);?>
 
         <?php foreach ($dataCmtUser as $user) {?>
+        <img class="rounded-circle" width="45" src="/../shop_xx/uploads/<?php echo $user['avt'] ?>" alt="">
+
+
         <span class="pl-1"><?php echo $user['user_fullName'] ?></span>
         <?php }?>
         <p><?php echo $date ?> </p>
