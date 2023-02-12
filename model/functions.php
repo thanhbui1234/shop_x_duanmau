@@ -8,10 +8,24 @@ function showPorudcts()
 
     $sql = " select * from products where status = 'public' order by id desc   ";
     $statemnet = $conn->prepare($sql);
-
     $statemnet->execute();
+    $dataCount = $statemnet->fetchAll();
+    $totalPage = count($dataCount);
+    $perPage = 9;
+    global $countPage;
+    $countPage = ceil($totalPage / $perPage);
+
+    isset($_GET['page']) ? $pageGet = $_GET['page'] : $pageGet = '';
+
+    ($pageGet == '' || $pageGet == 1) ? $pageSelect = 0 : $pageSelect = ($pageGet * $perPage) - $perPage;
+
+    $sqlPage = " select * from products where status = 'public' order by id desc limit  $pageSelect , $perPage    ";
+    $statementPage = $conn->prepare($sqlPage);
+    $statementPage->execute();
+
     global $dataProducts;
-    $dataProducts = $statemnet->fetchAll();
+    $dataProducts = $statementPage->fetchAll();
+
 }
 
 function showAboutProduct()
@@ -229,7 +243,7 @@ function insertRequest()
 
                 $errRequest['reasonEmpty'] = "Bạn phải cần lý do";
 
-            } else if (strlen($reason) < 50) {
+            } else if (strlen($reason) < 30) {
 
                 $errRequest['stringReason'] = "Lý do phải hơn 50 ký tự";
 

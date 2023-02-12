@@ -17,7 +17,7 @@
                                 Sản phẩm
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                30
+                                <?php echo $products ?>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -38,7 +38,8 @@
                                 Loại sản phẩm
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                40
+                                <?php echo $categories ?>
+
                             </div>
                         </div>
                         <div class="col-auto">
@@ -61,7 +62,8 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col-auto">
                                     <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
-                                        30
+                                        <?php echo $users ?>
+
                                     </div>
                                 </div>
 
@@ -85,7 +87,8 @@
                                 Bình Luận
                             </div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                15
+                                <?php echo $commnets ?>
+
 
                             </div>
                         </div>
@@ -103,10 +106,43 @@
 
 
     <!-- GOOGLE CHART -->
-
-    <div class="row">
+    <div>
         <canvas id="myChart"></canvas>
     </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Sản phẩm', 'Loại sản phẩm', 'Người dùng', 'Bình luận'],
+            datasets: [{
+                label: 'Thống kê',
+                data: [
+                    <?php echo $products ?>,
+                    <?php echo $categories ?>,
+                    <?php echo $users ?>,
+                    <?php echo $commnets ?>,
+
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
+
 
     <!-- Content Row -->
     <!-- /.container-fluid -->

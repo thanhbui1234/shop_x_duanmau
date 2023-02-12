@@ -122,14 +122,13 @@ if (isset($_GET['success'])) {
 </div>
 
 <script>
-const form = document.querySelector(' #myForm');
+const form = document.querySelector('#myForm');
 form.addEventListener('submit', function(e) {
     const
         textcmt = document.querySelector('#textcmt');
     if (textcmt.value.length < 5) {
         e.preventDefault();
-        return
-        Swal.fire({
+        return Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Bạn phải nhập đây đủ!',

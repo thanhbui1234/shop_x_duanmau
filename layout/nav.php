@@ -66,11 +66,12 @@
 
                          </span>
                          <ul class="dropdown-menu">
-                             <?php echo $_SESSION['user_role'] == 0 ? " <li><a class='dropdown-item' href='/shop_xx/admin/index.php?act=false'> Admin</a></li>" : ''; ?>
+
+                             <?php echo $_SESSION['user_role'] == 0 ? " <li><a class='dropdown-item' href='/shop_xx/index.php?act=request'> Admin</a></li>" : ""; ?>
 
                              <li><a class="dropdown-item" href="/shop_xx/index.php?act=profile">Profile</a></li>
 
-                             <?php echo $_SESSION['user_role'] != 0 ? " <li><a class='dropdown-item' href='/admin/index.php'> Trang quản trị</a></li>" : ''; ?>
+                             <?php echo $_SESSION['user_role'] != 0 ? " <li><a class='dropdown-item' href='/shop_xx/admin/index.php?act=false'> Trang quản trị</a></li>" : ''; ?>
 
 
                              <li><a class="dropdown-item" href="/shop_xx/view/logout/logout.php">Đăng xuất</a></li>

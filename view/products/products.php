@@ -37,8 +37,11 @@
 
         </div>
     </div>
-    <div id="paging" class=" mt-5">
 
+    <div id="paging" class="d-flex justify-content-center mt-5">
+        <?php for ($i = 1; $i <= $countPage; $i++) {?>
+        <a class="mx-3 fs-1" href="index.php?page=<?php echo $i ?>"><?php echo $i ?></a>
+        <?php }?>
 
     </div>
 

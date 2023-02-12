@@ -52,9 +52,19 @@ switch ($act) {
         break;
 
     case 'listUser':
+        roleUser();
+        deleteUser();
+        showAlluser();
+        include './view/user/listUser.php';
 
         break;
     case 'requestUser':
+        deleteRequest();
+
+        actionAdmin();
+
+        showRequest();
+        include './view/user/request.php';
 
         break;
 
@@ -68,8 +78,8 @@ switch ($act) {
         break;
 
     default:
-
-        include './layout/home.php';
+        coutAll();
+        include './view/home/home.php';
         break;
 }
 

@@ -54,7 +54,7 @@
 
     <div class="form-group">
         <label for="exampleInputPassword1">Giảm giá</label>
-        <input name="prod_sale" type="number" min="0" max="100" step="10" value="0" class="form-control"
+        <input name="prod_sale" type="number" min="0" max="100" step="5" value="0" class="form-control"
             id="exampleInputPassword1">
         <span id="percent">%</span>
 
