@@ -120,14 +120,21 @@
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Sản phẩm', 'Loại sản phẩm', 'Người dùng', 'Bình luận'],
+            labels: ['Sản phẩm', 'Sản phẩm giảm giá', 'Loại sản phẩm', 'Tài khoản', 'Người dùng', 'Admin',
+                'Bình luận', 'Đã duyệt', 'Chưa duyệt'
+            ],
             datasets: [{
                 label: 'Thống kê',
                 data: [
                     <?php echo $products ?>,
+                    <?php echo $saleProd ?>,
                     <?php echo $categories ?>,
                     <?php echo $users ?>,
+                    <?php echo $userNomal ?>,
+                    <?php echo $userAdmin ?>,
                     <?php echo $commnets ?>,
+                    <?php echo $cmtDuyet ?>,
+                    <?php echo $cmtChuaDuyet ?>,
 
                 ],
                 borderWidth: 2

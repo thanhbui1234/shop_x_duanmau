@@ -6,7 +6,13 @@ include './layout/header.php'
 
 
 <?php
-include_once './model/functions.php';
+require './model/cart.php';
+require './model/category.php';
+require './model/commnet.php';
+require './model/product.php';
+require './model/search.php';
+require './model/user.php';
+
 ?>
 
 
@@ -34,6 +40,8 @@ switch ($act) {
         include './view/profile/profile.php';
 
         break;
+    case 'edit_cmt';
+        break;
 
     case 'search';
         search();
@@ -49,7 +57,13 @@ switch ($act) {
         insertRequest();
         include './view/request/request.php';
         break;
-
+    case 'cart';
+        getCart();
+        include './view/cart/cart.php';
+        break;
+    case 'view_cart';
+        include './view/cart/view_cart.php';
+        break;
     default:
 
         showPorudcts();
@@ -60,7 +74,6 @@ switch ($act) {
 }
 
 ?>
-    h
 
 
 

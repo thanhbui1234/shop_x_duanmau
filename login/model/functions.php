@@ -97,7 +97,7 @@ function register()
             if ($statement->execute()) {
                 echo "<script>Swal.fire(
   'Good job!',
-  'You clicked the button!',
+  'Bạn đã tạo thành công!',
   'success'
 )</script>";
             }

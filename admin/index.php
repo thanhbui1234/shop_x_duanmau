@@ -8,7 +8,11 @@
 <?php include './layout/nav.php'?>
 
 
-<?php include_once './model/function.php'?>
+<?php require './model/category.php'?>
+<?php require './model/commnet.php'?>
+<?php require './model/count.php'?>
+<?php require './model/product.php'?>
+<?php require './model/user.php'?>
 
 
 

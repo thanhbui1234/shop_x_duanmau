@@ -58,6 +58,7 @@
             <!-- Heading -->
 
             <!-- Nav Item - Pages Collapse Menu -->
+            <?php if ($_SESSION['user_role'] == 2) {?>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
@@ -74,7 +75,7 @@
                 </div>
             </li>
             <hr class="sidebar-divider" />
-
+            <?php }?>
 
 
 

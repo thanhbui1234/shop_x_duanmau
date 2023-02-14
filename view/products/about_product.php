@@ -8,6 +8,7 @@ if (isset($_GET['success'])) {
 </script>";
 }
 
+deleteCmt();
 ?>
 
 <div class="bg-bg-light container" id="product">
@@ -36,11 +37,12 @@ if (isset($_GET['success'])) {
         <?php }?>
         <p class="mt-4 fs-4"> <?php echo $content ?></p>
 
-        <div class="buy">
-            <h5>
+        <div class="d-flex gap-lg-5  py-3">
+            <a href="/../shop_xx/index.php?act=cart&id=<?php echo $id ?>" class="btn btn-danger">
                 <i class="fa-solid fa-cart-shopping"></i> Thêm vào giỏ hàng
-            </h5>
-            <button>Mua ngay</button>
+            </a>
+            <a href="/../shop_xx/index.php?act=cart&id=<?php echo $id ?>" class="btn btn-success">Mua ngay</a>
+
 
         </div>
 
@@ -89,6 +91,8 @@ if (isset($_GET['success'])) {
     <section id="cmtUsers" class="">
         <?php foreach ($dataCmtss as $cmt) {extract($cmt)?>
         <hr>
+
+
         <?php selectavtCmtUser($id_user);?>
 
         <?php foreach ($dataCmtUser as $user) {?>
@@ -100,12 +104,31 @@ if (isset($_GET['success'])) {
     : " <img class='rounded-circle' width='35' src='/../shop_xx/uploads/$user[avt]' alt=''>";
 
     ?>
+        <div class="d-flex gap-4">
+            <span class="pl-1"><?php echo $user['user_fullName'] ?> </span>
+
+            <?php if ($_SESSION['userId'] == $id_user) {?>
+            <div class="dropdown">
+                <a class="" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-ellipsis-vertical">
+                    </i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item"
+                            href="/shop_xx/index.php?act=about_product&id=<?php echo $id_prod ?>&editCmt=<?php echo $id ?>">Chinh
+                            sua</a></li>
+                    <li><a class="dropdown-item"
+                            href="/shop_xx/index.php?act=about_product&id=<?php echo $id_prod ?>&deleteCmt=<?php echo $id ?>">Xoa</a>
+                    </li>
+
+                </ul>
+            </div>
+            <?php }?>
+        </div>
 
 
 
-
-
-        <span class="pl-1"><?php echo $user['user_fullName'] ?></span>
         <?php }?>
         <p><?php echo $date ?> </p>
 
@@ -115,8 +138,10 @@ if (isset($_GET['success'])) {
         <img width="45" src="/../shop_xx//uploads/<?php echo $cmt['img'] ?>" alt="">
         <?php }?>
 
-
     </section>
+
+
+
 
 
 </div>
