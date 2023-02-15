@@ -29,7 +29,6 @@ require './model/user.php';
 switch ($act) {
 
     case 'about_product':
-
         showAboutProduct();
         sendCmt();
         showCmt();

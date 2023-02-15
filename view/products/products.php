@@ -9,7 +9,9 @@
 
 
         <div class="row">
-
+            <?php if (empty($dataProducts)) {?>
+            <h2 class="text-center text-danger">Không có sản phẩm </h2>
+            <?php }?>
 
             <?php foreach ($dataProducts as $product) {extract($product)?>
             <div class="col-lg-4 col-sm-6 mb-4">

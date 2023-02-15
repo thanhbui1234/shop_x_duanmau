@@ -210,13 +210,31 @@ function selectOptionProduct()
                     case 'public':
                         $sql = "update products set status = 'public' where id = '$checkbox' ";
                         $statement = $conn->prepare($sql);
-                        $statement->execute();
+                        if ($statement->execute()) {
+                            echo "<script>
+                                Swal.fire(
+                            'Thành Công!',
+                            'Public !',
+                            'success'
+                            )
+                                </script>";
+
+                        }
 
                         break;
                     case 'private':
                         $sql = "update products set status = 'private' where id = '$checkbox' ";
                         $statement = $conn->prepare($sql);
-                        $statement->execute();
+                        if ($statement->execute()) {
+                            echo "<script>
+                                Swal.fire(
+                            'Thành Công!',
+                            'Private !',
+                            'success'
+                            )
+                                </script>";
+
+                        }
 
                         break;
 
@@ -232,7 +250,16 @@ function selectOptionProduct()
                             $sqlClone = " insert into products (category,name,price,img,content,status,sale,tag,total_price_sale)  ";
                             $sqlClone .= " values ('$category','$name','$price','$img','$content','$status','$sale','$tag','$total_price_sale') ";
                             $statementClone = $conn->prepare($sqlClone);
-                            $statementClone->execute();
+                            if ($statementClone->execute()) {
+                                echo "<script>
+                                Swal.fire(
+                            'Thành Công!',
+                            'Clone !',
+                            'success'
+                            )
+                                </script>";
+
+                            }
 
                         }
                         break;
@@ -240,11 +267,19 @@ function selectOptionProduct()
                     case 'delete':
                         $sql = " delete from products where id = '$checkbox' ";
                         $statement = $conn->prepare($sql);
-                        $statement->execute();
+                        if ($statement->execute()) {
+                            echo "<script>
+                                Swal.fire(
+                            'Thành Công!',
+                            'Delete !',
+                            'success'
+                            )
+                                </script>";
+
+                        }
 
                         break;
                     default:
-
                         echo "<script>Swal.fire('Bạn phải chọn chức năng')</script>";
                         break;
 

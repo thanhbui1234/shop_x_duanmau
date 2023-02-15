@@ -1,3 +1,20 @@
+<?php
+
+if (isset($_GET['alertPulic'])) {
+    echo "<script>
+    Swal.fire(
+  'Thành Công!',
+  'Public !',
+  'success'
+)
+    </script>";
+}
+
+?>
+
+
+
+
 <div class="mx-4">
     <form action="#" method="post" class="">
 
@@ -55,7 +72,7 @@
                     <td> <?php echo $name ?> </td>
                     <td> <?php echo $category ?> </td>
                     <td> <?php echo $price ?> </td>
-                    <td><img width="50" src="../uploads//<?php echo $img ?>" alt=""></td>
+                    <td><img width="50" src="/../shop_xx/uploads/<?php echo $img ?>" alt=""></td>
 
                     <td class="content"> <?php echo substr($content, 0, 70) ?></td>
                     <td> <?php echo $status ?> </td>
@@ -64,7 +81,6 @@
                             href="index.php?act=update_prod&&id=<?php echo $id ?>">UPDATE</a>
                         <a class="btn btn-danger" href="index.php?act=listProd&delete=<?php echo $id ?>">DELETE</a>
                     </td>
-
 
                     <?php }?>
                 </tr>
