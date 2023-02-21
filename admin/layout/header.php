@@ -1,4 +1,15 @@
 <?php session_start()?>
+
+<?php
+
+if (!isset($_SESSION['userId'])) {
+
+    header('Location: /shop_xx/index.php');
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

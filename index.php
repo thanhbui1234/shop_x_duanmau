@@ -17,7 +17,6 @@ require './model/user.php';
 
 
 
-
 <body id="page-top">
     <!-- Navigation-->
     <?php include './layout/nav.php'?>
@@ -63,6 +62,12 @@ switch ($act) {
     case 'view_cart';
         include './view/cart/view_cart.php';
         break;
+    case 'changePassword';
+
+        changePasswrod();
+
+        include './view/profile/changepassword.php';
+        break;
     default:
 
         showPorudcts();
@@ -73,11 +78,6 @@ switch ($act) {
 }
 
 ?>
-
-
-
-
-
 
 
 

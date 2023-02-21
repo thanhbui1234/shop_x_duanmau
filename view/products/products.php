@@ -6,9 +6,49 @@
         </div>
 
 
+        <?php topView()?>
+
+        <h3 class="text-danger">Top 10 sản phẩm hot pro</h3>
+
+        <script>
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
+                    }
+                }
+            })
+        });
+        </script>
+        <div class="owl-carousel owl-theme mt-5">
+            <?php
+foreach ($dataTopView as $product) {extract($product)?>
+            <div class="item">
+                <a href="./index.php?act=about_product&id=<?php echo $id ?>">
+                    <img width="25" src="/../shop_xx/uploads/<?php echo $img ?>" alt="">
+                    <p>
+                        <?php echo $name ?>
+                    </p>
 
 
-        <div class="row">
+                </a>
+
+            </div>
+
+            <?php }?>
+        </div>
+
+        <div class="row mt-5">
             <?php if (empty($dataProducts)) {?>
             <h2 class="text-center text-danger">Không có sản phẩm </h2>
             <?php }?>

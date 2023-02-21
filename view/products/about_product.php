@@ -11,7 +11,9 @@ if (isset($_GET['success'])) {
 deleteCmt();
 ?>
 
+
 <div class="bg-bg-light container" id="product">
+
 
 
     <?php foreach ($dataAboutProduct as $product) {extract($product)?>

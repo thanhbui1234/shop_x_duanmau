@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>SHOP X</title>.
+    <title>SHOP X</title>
 
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -38,8 +38,8 @@
 
 
     <!--  -->
-    <script src=" https://code.jquery.com/jquery-3.5.1.min.js">
-    </script>
+    <!-- <script src=" https://code.jquery.com/jquery-3.5.1.min.js">
+    </script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- include summernote css/js -->
@@ -57,6 +57,16 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+    <!-- slide show -->
+
+    <link rel="stylesheet" href="/../shop_xx/layout/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/../shop_xx/layout/owlcarousel/assets/owl.theme.default.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="/../shop_xx/layout/owlcarousel/owl.carousel.min.js"></script>
+
 
 </head>
 

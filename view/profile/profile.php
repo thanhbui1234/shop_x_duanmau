@@ -1,5 +1,12 @@
 <body id="page-top">
 
+
+    <?php if (!isset($_SESSION['userId'])) {
+    header('Location: /shop_xx/index.php?act=false');
+}
+
+?>
+
     <?php updateProfile()?>
 
 

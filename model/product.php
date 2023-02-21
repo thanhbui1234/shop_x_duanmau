@@ -51,3 +51,27 @@ function updateCmtProd()
 
     }
 }
+
+function view()
+{
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        global $conn;
+        $sql = "update products set view = view +1 where id = $id ";
+        $statemnet = $conn->prepare($sql);
+        $statemnet->execute();
+
+    }
+}
+
+function topView()
+{
+    global $conn;
+    $sql = "  SELECT * from products  order by view  desc limit 0,10  ";
+    $statemnet = $conn->prepare($sql);
+    $statemnet->execute();
+
+    global $dataTopView;
+    $dataTopView = $statemnet->fetchAll();
+
+}

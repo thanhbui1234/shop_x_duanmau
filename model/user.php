@@ -126,3 +126,52 @@ function insertRequest()
 
     }
 }
+
+function changePasswrod()
+{
+    if (isset($_POST['saveChangePassword'])) {
+
+        $password = htmlspecialchars($_POST['nowPassword']);
+
+        $newPasswrod = htmlspecialchars($_POST['newPassword']);
+
+        $id = $_SESSION['userId'];
+
+        global $conn;
+
+        $sql = " select password from user where id = $id";
+
+        global $errChangePassword;
+        $errChangePassword = [];
+
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        $dataPassword = $statement->fetchAll();
+        foreach ($dataPassword as $passwordOld) {
+            $passwordhientai = $passwordOld['password'];
+
+        }
+
+        if (!password_verify($password, $passwordhientai)) {
+
+            $errChangePassword['nowPassword'] = 'Mật khẩu không đúng';
+
+        }
+
+        if (empty($errChangePassword)) {
+
+            $arr = ['cost' => 12];
+            $newPasswrod = password_hash($newPasswrod, PASSWORD_BCRYPT, $arr);
+            $sqlUpdatePassword = "update user set password = '$newPasswrod' where id =  $id ";
+            $statementPassword = $conn->prepare($sqlUpdatePassword);
+            if ($statementPassword->execute()) {
+
+                header('location: /shop_xx/index.php?act=changePassword&success');
+
+            }
+
+        }
+
+    }
+
+}

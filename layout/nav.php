@@ -53,11 +53,12 @@
                              aria-expanded="false">
                              <?php foreach ($dataAvtNav as $avt) {
 
-    echo empty($dataAvtNav) ? "   <img width='29' src='/../shop_xx//uploads/avatardefault_92824.webp' alt=''>" : "   <img class='rounded-circle' width='30' src='/../shop_xx//uploads/$avt[avt]' alt=''>";
+    echo empty($dataAvtNav) ? '<img class="rounded-circle" width="30" src="/../shop_xx//uploads/avatardefault_92824.webp" alt=""> ' : "  <img class='rounded-circle' width='30' src='/../shop_xx//uploads/$avt[avt]' alt=''>";
 
 }?>
 
 
+                             <!-- <img src="/../shop_xx/uploads/avatardefault_92824.webp" alt=""> -->
 
 
 
@@ -67,6 +68,7 @@
                          </span>
                          <ul class="dropdown-menu">
 
+
                              <?php echo $_SESSION['user_role'] == 0 ? " <li><a class='dropdown-item' href='/shop_xx/index.php?act=request'> Admin</a></li>" : ""; ?>
 
                              <li><a class="dropdown-item" href="/shop_xx/index.php?act=profile">Profile</a></li>
@@ -75,6 +77,9 @@
 
 
                              <li><a class="dropdown-item" href="/shop_xx/view/logout/logout.php">Đăng xuất</a></li>
+                             <li><a class="dropdown-item" href="/shop_xx/index.php?act=changePassword">Đổi mật khẩu</a>
+                             </li>
+
 
 
                          </ul>
