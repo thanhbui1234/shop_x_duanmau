@@ -44,7 +44,7 @@ if ($role == 0) {
                 <td><a href="/shop_xx/admin/index.php?act=listUser&normal=<?php echo $id ?>">Người dùng</a> or
                     <a href="/shop_xx/admin/index.php?act=listUser&admin=<?php echo $id ?>">Admin</a>
                 </td>
-                <td><a href="/shop_xx/admin/index.php?act=listUser&delete=<?php echo $id ?>"><button
+                <td><a class="delete" href="/shop_xx/admin/index.php?act=listUser&delete=<?php echo $id ?>"><button
                             class="btn btn-danger">Xóa</button></a>
                 </td>
 
@@ -53,3 +53,58 @@ if ($role == 0) {
         </tbody>
     </table>
 </div>
+
+<script>
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+    },
+    buttonsStyling: false
+})
+            
+const deleteBtn = document.querySelectorAll('.delete');
+console.log(deleteBtn);
+
+deleteBtn.forEach((btn) => {
+
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+
+        swalWithBootstrapButtons.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                return btn.unbind('click');
+                swalWithBootstrapButtons.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+
+
+                swalWithBootstrapButtons.fire(
+                    'Cancelled',
+                    'Your imaginary file is safe :)',
+                    'error'
+                )
+            }
+        })
+
+
+    })
+
+})
+</script>

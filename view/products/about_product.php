@@ -109,24 +109,7 @@ deleteCmt();
         <div class="d-flex gap-4">
             <span class="pl-1"><?php echo $user['user_fullName'] ?> </span>
 
-            <?php if ($_SESSION['userId'] == $id_user) {?>
-            <div class="dropdown">
-                <a class="" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis-vertical">
-                    </i>
-                </a>
 
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item"
-                            href="/shop_xx/index.php?act=about_product&id=<?php echo $id_prod ?>&editCmt=<?php echo $id ?>">Chinh
-                            sua</a></li>
-                    <li><a class="dropdown-item"
-                            href="/shop_xx/index.php?act=about_product&id=<?php echo $id_prod ?>&deleteCmt=<?php echo $id ?>">Xoa</a>
-                    </li>
-
-                </ul>
-            </div>
-            <?php }?>
         </div>
 
 

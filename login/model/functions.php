@@ -95,11 +95,13 @@ function register()
             $statement = $conn->prepare($sql);
 
             if ($statement->execute()) {
-                echo "<script>Swal.fire(
-  'Good job!',
-  'Bạn đã tạo thành công!',
-  'success'
-)</script>";
+                echo "<script>Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Bạn đã đăng ký thành công',
+  showConfirmButton: false,
+  timer: 1500
+})</script>";
             }
 
         }
