@@ -294,12 +294,15 @@ function selectOptionProduct()
 
 function deleteProduct()
 {
-    if (isset($_GET['delete'])) {
+    if (isset($_GET['deleteProduct'])) {
         global $conn;
-        $id = $_GET['delete'];
+        $id = $_GET['deleteProduct'];
         $sql = " delete from products where id = '$id' ";
         $statement = $conn->prepare($sql);
-        $statement->execute();
+        if ($statement->execute()) {
+            header('location: index.php?act=listProd');
+
+        }
 
     }
 }

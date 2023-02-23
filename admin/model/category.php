@@ -55,8 +55,8 @@ function showCategory()
 function deleteCategory()
 {
 
-    if (isset($_GET['delete'])) {
-        $id = $_GET['delete'];
+    if (isset($_GET['deleteCategory'])) {
+        $id = $_GET['deleteCategory'];
         global $conn;
 
         $sql = " DELETE FROM categories where id = $id ";

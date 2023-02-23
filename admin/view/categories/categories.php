@@ -73,9 +73,9 @@
                         <td> <?php echo $id ?></td>
                         <td><?php echo $name ?></td>
                         <td><a class=" btn btn-success"
-                                href="index.php?act=categories&&update=<?php echo $id ?>">Update</a>
-                            <a class=" btn btn-danger "
-                                href="index.php?act=categories&&delete=<?php echo $id ?>">Delete</a>
+                                href="index.php?act=categories&&update=<?php echo $id ?>">UPDATE</a>
+                            <a class="delete_categories" data-id="<?php echo $id ?>"><button
+                                    class="btn btn-danger">DELETE</button></a>
                         </td>
 
                     </tr>
@@ -95,3 +95,6 @@
 
 
 </div>
+
+
+<script src="/shop_xx//js//comfirm_category.js"></script>

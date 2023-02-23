@@ -52,9 +52,9 @@ function showAlluser()
 function deleteUser()
 {
 
-    if (isset($_GET['delete'])) {
+    if (isset($_GET['deleteUser'])) {
         global $conn;
-        $sql = " delete from user where id = $_GET[delete]";
+        $sql = " delete from user where id = $_GET[deleteUser]";
         $statement = $conn->prepare($sql);
         if ($statement->execute()) {
             header('location: /shop_xx/admin//index.php?act=listUser');

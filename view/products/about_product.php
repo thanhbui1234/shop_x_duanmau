@@ -102,7 +102,7 @@ deleteCmt();
 
         <?php
 
-    echo empty($user['avt']) ? "    <img class='rounded-circle' width='45' src='/../shop_xx/uploads/avatardefault_92824.webp' alt=''>"
+    echo empty($user['avt']) ? "  <img class='rounded-circle' width='45' src='/../shop_xx/uploads/avatardefault_92824.webp' alt=''>"
     : " <img class='rounded-circle' width='35' src='/../shop_xx/uploads/$user[avt]' alt=''>";
 
     ?>

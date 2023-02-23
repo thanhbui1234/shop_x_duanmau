@@ -79,7 +79,8 @@ if (isset($_GET['alertPulic'])) {
                     <td> <?php echo $sale ?> % </td>
                     <td class="action_prod"> <a class="btn btn-success"
                             href="index.php?act=update_prod&&id=<?php echo $id ?>">UPDATE</a>
-                        <a class="btn btn-danger" href="index.php?act=listProd&delete=<?php echo $id ?>">DELETE</a>
+                        <a class="deleteProd" data-id="<?php echo $id ?>"><button
+                                class="btn btn-danger">Xóa</button></a>
                     </td>
 
                     <?php }?>
@@ -95,3 +96,4 @@ if (isset($_GET['alertPulic'])) {
 </div>
 
 <script src="/shop_xx//js//checkbox.js"></script>
+<script src="/shop_xx//js//comfirm_product.js"></script>
