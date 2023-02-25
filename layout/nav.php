@@ -53,7 +53,7 @@
                              aria-expanded="false">
                              <?php foreach ($dataAvtNav as $avt) {
 
-    echo empty($dataAvtNav) ? '<img class="rounded-circle" width="30" src="/../shop_xx//uploads/avatardefault_92824.webp" alt=""> ' : "  <img class='rounded-circle' width='30' src='/../shop_xx//uploads/$avt[avt]' alt=''>";
+    echo empty($dataAvtNav) ? "<img id='img' width='250' src='/../shop_xx/uploads//avatardefault_92824.JPG' alt=''>" : "  <img class='rounded-circle' width='30' src='/../shop_xx//uploads/$avt[avt]' alt=''>";
 
 }?>
 

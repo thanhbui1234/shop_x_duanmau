@@ -1,4 +1,4 @@
-<form class="container" enctype="multipart/form-data" method="POST">
+<form id="fomr_update_prod" class="container" enctype="multipart/form-data" method="POST">
 
     <?php foreach ($dataProdUpade as $product) {extract($product)?>
 
@@ -99,3 +99,6 @@
 
     <button type="submit" name="updateProd" class="btn btn-primary mb-3">Update</button>
 </form>
+
+
+<!-- <script src="/../shop_xx/js/comfirm_updateProd.js"></script> -->

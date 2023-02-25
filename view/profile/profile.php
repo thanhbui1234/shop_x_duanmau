@@ -37,8 +37,6 @@ if (isset($_GET['profileSuccess'])) {
                             <?php foreach ($dataPorfile as $profile) {?>
 
 
-                            >
-
 
                             <div class="mb-5 form-group">
                                 <label class="lable" for="">Tên đăng nhập</label> <input name="userName"
@@ -61,7 +59,7 @@ if (isset($_GET['profileSuccess'])) {
 
                         </div>
                         <div id="avatar">
-                            <?php echo empty($profile['avt']) ? "<img  id='img' width='250' src='/../shop_xx/uploads//avatardefault_92824.webp' alt=''><br>" : "<img class='rounded-circle' width='250' src='/../shop_xx/uploads//$profile[avt]' alt=''><br>"; ?>
+                            <?php echo empty($profile['avt']) ? "<img id='img' width='250' src='/../shop_xx/uploads//avatardefault_92824.JPG' alt=''><br>" : "<img class='rounded-circle' width='250' src='/../shop_xx/uploads//$profile[avt]' alt=''><br>"; ?>
                             <input name="avtUser" hidden id="file" type="file">
                             <label id="setAvt" class="border p-2 px-3 " for="file">Chọn ảnh</label>
                             <?php }?>

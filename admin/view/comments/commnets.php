@@ -58,15 +58,15 @@ if (isset($_GET['alertDuyet'])) {
              <td><img width="60" src="/../shop_xx//uploads/<?php echo $img ?>" alt=""></td>
              <td><?php
 
-    echo $duyet == 0 ? "<i class='text-danger fa-solid fa-xmark'> </i> Chua phe duyet" : "<i class='text-success fa-solid fa-check'> </i> Da phe duyet";
+    echo $duyet == 0 ? "<i class='text-danger fa-solid fa-xmark'> </i> Chưa phê duyệt" : "<i class='text-success fa-solid fa-check'> </i> Đã phê duyệt";
 
     ?>
 
              </td>
              <td>
-                 <a class="btn btn-success" href="/shop_xx/admin//index.php?act=comments&pheduyet=<?php echo $id ?>">Phe
-                     duyet</a>
-                 <a class="btn btn-danger" href="/shop_xx/admin//index.php?act=comments&deleteCmt=<?php echo $id ?>">Xoa
+                 <a class="btn btn-success" href="/shop_xx/admin//index.php?act=comments&pheduyet=<?php echo $id ?>">Phê
+                     duyệt</a>
+                 <a class="btn btn-danger" href="/shop_xx/admin//index.php?act=comments&deleteCmt=<?php echo $id ?>">Xóa
                  </a>
 
              </td>
