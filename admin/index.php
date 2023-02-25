@@ -1,4 +1,10 @@
-<?php ob_start()?>
+<?php require './model/category.php'?>
+<?php require './model/commnet.php'?>
+<?php require './model/count.php'?>
+<?php require './model/product.php'?>
+<?php require './model/user.php'?>
+
+<!-- <?php ob_start()?> -->
 <?php include './layout/header.php'?>
 
 
@@ -8,11 +14,6 @@
 <?php include './layout/nav.php'?>
 
 
-<?php require './model/category.php'?>
-<?php require './model/commnet.php'?>
-<?php require './model/count.php'?>
-<?php require './model/product.php'?>
-<?php require './model/user.php'?>
 
 
 

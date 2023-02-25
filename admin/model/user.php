@@ -104,3 +104,19 @@ function actionAdmin()
 
     }
 }
+
+function showAvt()
+{
+
+    if (isset($_SESSION['userId'])) {
+        global $conn;
+        $id = $_SESSION['userId'];
+        $sql = "SELECT avt FROM user where id='$id'";
+        $statement = $conn->prepare($sql);
+        $statement->execute();
+        global $dataAvt;
+        $dataAvt = $statement->fetchAll();
+
+    }
+
+}

@@ -10,7 +10,7 @@ if (isset($_GET['success'])) {
 
 deleteCmt();
 ?>
-
+<?php view()?>
 
 <div class="bg-bg-light container" id="product">
 

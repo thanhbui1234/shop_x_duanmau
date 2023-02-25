@@ -63,7 +63,9 @@ function updateProfile()
 
         $sql = " update user set user_fullName = '$fullName' ,  email = '$email' , user_name = '$userName' , avt = '$avt', phone = '$phone' where id = $id ";
         $statement = $conn->prepare($sql);
-        $statement->execute();
+        if ($statement->execute()) {
+            header('location: /shop_xx/index.php?act=profile&profileSuccess');
+        }
 
     }
 

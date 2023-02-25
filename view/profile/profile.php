@@ -5,6 +5,16 @@
     header('Location: /shop_xx/index.php?act=false');
 }
 
+if (isset($_GET['profileSuccess'])) {
+    echo "<script>Swal.fire({
+  position: 'top-end',
+  icon: 'success',
+  title: 'Bạn đã cập nhật thành công',
+  showConfirmButton: false,
+  timer: 1500
+})</script>";
+}
+
 ?>
 
     <?php updateProfile()?>
@@ -20,11 +30,15 @@
             <hr>
             <section class="">
 
-                <form action="#" enctype="multipart/form-data" method="POST">
+                <form id="formProfile" action="#" enctype="multipart/form-data" method="POST">
 
                     <div id="profile">
                         <div>
                             <?php foreach ($dataPorfile as $profile) {?>
+
+
+                            >
+
 
                             <div class="mb-5 form-group">
                                 <label class="lable" for="">Tên đăng nhập</label> <input name="userName"
@@ -69,3 +83,8 @@
 
 
     </div>
+
+
+    <script src="/../shop_xx/js/profile.js">
+
+    </script>
