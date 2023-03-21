@@ -29,7 +29,8 @@ if (!isset($_SESSION['userId'])) {
 
 
     <!-- Custom fonts for this template-->
-    <link href="./layout//vendor/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="/../shop_xx/admin/layout//vendor/fontawesome-free-6.1.1-web/css/all.min.css" rel="stylesheet"
+        type="text/css" />
 
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -40,7 +41,7 @@ if (!isset($_SESSION['userId'])) {
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Custom styles for this template-->
-    <link href="./layout//css/sb-admin-2.min.css" rel="stylesheet" />
+    <link href="/../shop_xx/admin/layout/css/sb-admin-2.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="./css//style.css">
 </head>

@@ -70,7 +70,13 @@ if (isset($_GET['alertPulic'])) {
                     </td>
                     <td> <?php echo $id ?></td>
                     <td> <?php echo $name ?> </td>
-                    <td> <?php echo $category ?> </td>
+
+                    <?php selectNameCategory($category)?>
+                    <?php foreach ($dataNameCae as $cate) {?>
+                    <td><?php echo $cate['name'] ?></td>
+                    <?php }?>
+
+
                     <td> <?php echo $price ?> </td>
                     <td><img width="50" src="/../shop_xx/uploads/<?php echo $img ?>" alt=""></td>
 

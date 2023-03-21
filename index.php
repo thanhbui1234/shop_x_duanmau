@@ -36,7 +36,6 @@ switch ($act) {
     case 'profile';
         profile();
         include './view/profile/profile.php';
-
         break;
     case 'edit_cmt';
         break;

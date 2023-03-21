@@ -2,6 +2,7 @@
 
     <?php foreach ($dataProdUpade as $product) {extract($product)?>
 
+
     <div class="form-group">
         <label for="exampleInputEmail1">Tên sản phẩm</label>
         <input type="text" value="<?php echo $name ?>" name="prod_name" class="form-control" id="exampleInputEmail1"

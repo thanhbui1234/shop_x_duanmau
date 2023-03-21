@@ -189,6 +189,7 @@ function showProdUpdate()
         $statement->execute();
         global $dataProdUpade;
         $dataProdUpade = $statement->fetchAll();
+
     }
 
 }
@@ -305,4 +306,16 @@ function deleteProduct()
         }
 
     }
+}
+
+function selectNameCategory($categry)
+{
+    global $conn;
+    $sql = "select name from categories where id = $categry";
+    $statement = $conn->prepare($sql);
+
+    $statement->execute();
+    global $dataNameCae;
+    $dataNameCae = $statement->fetchAll();
+
 }
